@@ -1,36 +1,40 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema(
+const {Schema, model} = mongoose;
+
+// 1. Define the blueprint (Schema)
+const userSchema = new Schema(
   {
-    name: {
+    userName: {
       type: String,
       required: true,
     },
 
-    email: {
+    userEmail: {
       type: String,
       required: true,
       unique: true,
     },
 
-    password: {
+    userPassword: {
       type: String,
       required: true,
     },
 
-    role: {
+    userRole: {
       type: String,
       enum: ["SUPER_ADMIN", "ADMIN", "USER"],
       default: "USER",
     },
 
-    permissions: [
+    userPermissions: [
       {
         type: String,
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true } // Automatically creates createdAt and updatedAt fields
 );
 
-export default mongoose.model("User", userSchema);
+// 2. Compile into a usable interface (Model)
+export default model("User", userSchema);
