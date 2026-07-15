@@ -1,9 +1,10 @@
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import ApiError from "../utils/ApiError.js";
 
 // Register API
-export const register = async (req, res) => {
+export const register = async (req, res, next) => {
   try {
     const { userName, userEmail, userPassword } = req.body;
 
@@ -11,9 +12,7 @@ export const register = async (req, res) => {
     const existing = await User.findOne({ userEmail}); 
 
     if (existing){
-      return res.status(400).json({
-        message: "User already exists",
-      })
+      throw new ApiError(400, "User already exists");
     }
     // If not exists, then hash the password and create a new user
     const hashedPassword = await bcrypt.hash(userPassword, 10);
@@ -29,14 +28,12 @@ export const register = async (req, res) => {
     })
 
   } catch (error){
-    res.status(500).json({
-      message: "Internal Server Error",
-    })
+    next(error);
   }
 };
 
 // Login API
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
     try{
       const { userEmail, userPassword } = req.body;
 
@@ -44,17 +41,13 @@ export const login = async (req, res) => {
       const user = await User.findOne({ userEmail });
 
       if(!user){
-        return res.status(400).json({
-          message: "User not found",
-        })
+        throw new ApiError(400, "User not found");
       }
       // Compare the password
       const isPasswordValid = await bcrypt.compare(userPassword, user.userPassword);
 
       if(!isPasswordValid){
-        return res.status(400).json({
-          message: "Invalid Password",
-        })
+        throw new ApiError(400, "Invalid Password");
       }
       // Generate JWT token
       const token = jwt.sign(
@@ -75,9 +68,7 @@ export const login = async (req, res) => {
           userEmail: user.userEmail,
         }
       });
-    }catch (error){
-      res.status(500).json({
-        message: "Internal Server error",
-      })
+    } catch (error){
+      next(error);
     }
 }
