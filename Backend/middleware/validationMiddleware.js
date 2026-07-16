@@ -7,6 +7,7 @@ const validateRequest = (schema) => {
     // Iterate over each field in the schema and validate the corresponding value in req.body
     for(const [field, rule] of Object.entries(schema)) {
       const value = req.body[field];
+      const expectedType = typeof rule.type === "string" ? rule.type.toLowerCase() : "";
 
       // Check for required fields
       if (rule.required && (value === undefined || value === null || value === "")) {
@@ -17,7 +18,7 @@ const validateRequest = (schema) => {
        // Only validate if the value is present
       if (value !== undefined && value !== null) {
         // Validate type, pattern, and minLength if specified in the schema
-        if (rule.type && typeof value !== rule.type) {
+        if (rule.type && typeof value !== expectedType) {
           errors.push({ field, message: `${field} must be a ${rule.type}` });
           continue;
         }
