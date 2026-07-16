@@ -1,39 +1,156 @@
-# 🚗 Parking Management System (Day 1)
+# 🚀 Amba Auto Deals - Employee Attendance Management System
 
-> **Internship Project** | MERN Stack | Production-Ready Architecture
+> **Internship Project** | MERN Stack | Employee Attendance & Workforce Management
 
 ## 📖 Overview
 
-The **Parking Management System** is a full-stack web application being developed as part of my internship. The goal of this project is to build a scalable and secure parking management platform using the **MERN Stack (MongoDB, Express.js, React, Node.js)** while following industry-standard development practices.
+The **Employee Attendance Management System** is a full-stack web application developed for **Amba Auto Deals** to simplify employee attendance tracking and workforce management.
 
-This project will include user authentication, role-based access control, parking slot management, booking management, payments, file uploads, API documentation with Swagger, and a responsive React frontend.
+The application enables secure authentication, role-based access control, employee management, attendance tracking, leave management, reporting, and document management through a modern, scalable MERN Stack architecture.
 
----
-
-## 🎯 Day 1 Progress
-
-On the first day, the initial project setup and development environment were completed.
-
-### ✅ Completed Tasks
-
-* Initialized the MERN project structure
-* Created separate **Frontend** and **Backend** folders
-* Set up the React application using **Vite**
-* Initialized the Express backend
-* Installed required backend dependencies
-* Configured **ES Modules**
-* Added **Nodemon** for development
-* Created the backend folder structure
-* Configured environment variables (`.env`)
-* Prepared MongoDB connection setup
-* Created the initial Express application (`app.js` and `server.js`)
+This project is being developed following **industry-standard practices**, including RESTful APIs, MVC architecture, reusable middleware, JWT authentication, Swagger API documentation, and clean code principles.
 
 ---
 
-## 📂 Project Structure
+# ✨ Features
+
+## 🔐 Authentication & Authorization
+
+* JWT Authentication
+* Secure Password Hashing (bcrypt)
+* Role-Based Access Control (RBAC)
+* Permission-Based Authorization
+* Protected APIs
+
+---
+
+## 👥 Employee Management
+
+* Add Employee
+* Update Employee Details
+* Delete Employee
+* View Employee Profile
+* Employee Directory
+
+---
+
+## 🕒 Attendance Management
+
+* Daily Check-In
+* Daily Check-Out
+* Attendance History
+* Monthly Attendance Records
+* Working Hours Calculation
+* Attendance Status
+
+  * Present
+  * Absent
+  * Half Day
+  * Leave
+  * Holiday
+
+---
+
+## 📝 Leave Management
+
+* Apply Leave
+* Leave Approval / Rejection
+* Leave History
+* Leave Status Tracking
+
+---
+
+## 📊 Dashboard
+
+### Admin Dashboard
+
+* Total Employees
+* Present Today
+* Absent Today
+* Employees on Leave
+* Late Arrivals
+* Attendance Summary
+
+### Employee Dashboard
+
+* Today's Attendance
+* Monthly Attendance
+* Leave Balance
+* Attendance History
+
+---
+
+## 📈 Reports
+
+* Daily Attendance Report
+* Weekly Report
+* Monthly Report
+* Employee Attendance Report
+
+---
+
+## 📂 File Management
+
+* Employee Profile Photo
+* Aadhaar Upload
+* PAN Upload
+* Offer Letter Upload
+* Other Documents
+
+---
+
+## 📖 API Documentation
+
+* Swagger UI Integration
+* Complete REST API Documentation
+* Request & Response Examples
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+* React.js
+* Vite
+* React Router DOM
+* Axios
+* Tailwind CSS
+
+## Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT
+* bcrypt
+* Multer
+* Swagger
+* dotenv
+
+---
+
+# 🏗 Architecture
+
+The project follows a scalable backend architecture:
+
+* MVC Architecture
+* Service Layer
+* RESTful APIs
+* JWT Authentication
+* RBAC (Role-Based Access Control)
+* Global Error Handling
+* Validation Middleware
+* Authentication Middleware
+* Swagger Documentation
+
+---
+
+# 📂 Project Structure
 
 ```text
-parking-management/
+attendance-management-system/
 │
 ├── frontend/
 │   ├── src/
@@ -53,95 +170,51 @@ parking-management/
 │   ├── utils/
 │   ├── app.js
 │   ├── server.js
-│   ├── package.json
-│   └── .env
+│   └── package.json
 │
 └── README.md
 ```
 
 ---
 
-## 🛠️ Tech Stack
+# 👤 User Roles
 
-### Frontend
+## Super Admin
 
-* React
-* Vite
-* React Router
-* Tailwind CSS *(to be configured)*
+* Manage Admins
+* Manage Roles & Permissions
+* View All Reports
+* Company Settings
 
-### Backend
+## Admin / HR
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* JWT
-* bcrypt
-* Multer
-* Swagger
-* Nodemon
-* dotenv
+* Manage Employees
+* Manage Attendance
+* Approve Leave Requests
+* Generate Reports
+* Upload Employee Documents
 
----
+## Employee
 
-## 🚀 Features Planned
-
-* User Authentication (JWT)
-* Role-Based Access Control (Super Admin, Admin, User)
-* Permission Management
-* Parking Slot Management
-* Vehicle Management
-* Parking Booking
-* Payment Module
-* Global File Upload System
-* Dashboard & Reports
-* Swagger API Documentation
-* Error Handling Middleware
-* Validation Middleware
-* Logging Middleware
+* Login
+* Check-In
+* Check-Out
+* View Attendance
+* Apply Leave
+* Update Profile
 
 ---
 
-## 📅 Development Timeline
+# 🚀 Getting Started
 
-### ✅ Day 1
-
-* Project setup
-* Folder structure
-* Backend initialization
-* React (Vite) setup
-* Environment configuration
-
-### 🔜 Day 2 (Planned)
-
-* MongoDB connection
-* User model
-* Authentication APIs
-* Password hashing with bcrypt
-* JWT implementation
-* Login & Register endpoints
-
----
-
-## ▶️ Getting Started
-
-### Clone the repository
+## Clone the Repository
 
 ```bash
 git clone <repository-url>
-cd parking-management
+cd attendance-management-system
 ```
 
-### Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-### Backend
+## Backend Setup
 
 ```bash
 cd backend
@@ -149,18 +222,53 @@ npm install
 npm run dev
 ```
 
+## Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
 ---
 
-## 📌 Current Status
+# 📅 Development Roadmap
 
-🚧 **Day 1 Completed**
-
-The project foundation has been established successfully. The next milestone is implementing secure authentication, authorization, and the core backend APIs.
+* ✅ Project Setup
+* ✅ Backend Architecture
+* ✅ JWT Authentication
+* ✅ Role-Based Access Control
+* ✅ Swagger API Documentation
+* 🔄 Employee Management Module
+* ⏳ Attendance Module
+* ⏳ Leave Management Module
+* ⏳ Dashboard Module
+* ⏳ Reports Module
+* ⏳ File Upload Module
+* ⏳ Frontend Development
+* ⏳ API Integration
+* ⏳ Deployment
 
 ---
 
-## 👨‍💻 Author
+# 🎯 Learning Objectives
+
+This internship project focuses on:
+
+* Building scalable MERN applications
+* Writing clean and maintainable code
+* Implementing secure authentication and authorization
+* Designing RESTful APIs
+* Following industry-standard backend architecture
+* Integrating frontend and backend applications
+* Creating production-ready web applications
+
+---
+
+# 👨‍💻 Author
 
 **Ashutosh Kumar**
 
-Internship Project • MERN Stack Development
+**Internship Project – Amba Auto Deals**
+
+Built with ❤️ using the MERN Stack.
